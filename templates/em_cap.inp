@@ -1,0 +1,22 @@
+    EXE> INPUT
+         TOPOLOGY=   FORM     NAMETO=    #{TOPOLOGY}
+         COORDINA=   PDB      NAMECO=    #{PDB}
+         REFCOORD=   PDB      NAMERE=    #{PDB}
+         POSITION=   READ     NAMEPO=    ./templates/posres.inp
+         SETBOU=     READ     NAMEBO=    ./capbc
+
+         QUIT
+    EXE> MINI
+         METHOD=  STEEP       CPUTIM=     360000.0
+         LOOPLI=  500         UPDATE=     20
+         MONITO=  100         CONVGR=     0.001D0
+         CUTMET=  RESA        CUTLEN=    10.0D0
+         DIEFUN=  CONS        DIEVAL=     1.0D0
+         CALPSR=  CALC        WETPSR=     1.00
+         CALCAP=  CALC        FORCAP=    10.0
+
+         QUIT
+    EXE> OUTPUT
+         COORDINATE=  PDB     NAMECO=   em.pdb
+         QUIT
+    EXE> END
