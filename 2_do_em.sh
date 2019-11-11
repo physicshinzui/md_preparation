@@ -19,12 +19,12 @@ TOP=$1
 PDB=$2
 BIN=../../myPresto/bin
 
-cellx=$(grep CELL   ../prepTopAndInitialPDB/setwat.info | awk '{print $5}') 
-celly=$(grep CELL   ../prepTopAndInitialPDB/setwat.info | awk '{print $6}') 
-cellz=$(grep CELL   ../prepTopAndInitialPDB/setwat.info | awk '{print $7}') 
-centx=$(grep CENTER ../prepTopAndInitialPDB/setwat.info | awk '{print $5}')
-centy=$(grep CENTER ../prepTopAndInitialPDB/setwat.info | awk '{print $6}')
-centz=$(grep CENTER ../prepTopAndInitialPDB/setwat.info | awk '{print $7}')
+cellx=$(grep CELL   ./setwat.info | awk '{print $5}') 
+celly=$(grep CELL   ./setwat.info | awk '{print $6}') 
+cellz=$(grep CELL   ./setwat.info | awk '{print $7}') 
+centx=$(grep CENTER ./setwat.info | awk '{print $5}')
+centy=$(grep CENTER ./setwat.info | awk '{print $6}')
+centz=$(grep CENTER ./setwat.info | awk '{print $7}')
 
 cat templates/em_pmf.inp | sed \
     -e "s!#{TOPOLOGY}!$1!g"   \
