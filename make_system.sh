@@ -14,14 +14,17 @@ Usage
 
 EOF
 
+DB=../../myPresto/cosgene_pack180227/src/tplgeneX180118/tplgeneX/DB
+PRESTO_BIN=../../myPresto/bin/
+echo "setting paths to binary files and force fields params..."
+set_env $PRESTO_BIN $DB
+
 inputPDBName=$1
 name=$(basename $inputPDBName)
 inputSuffix=${name%.*}
-ffParamFileName=$2 #C99_aa_SB_ILDN.tpl
-
-echo "setting paths to binary files and force fields params..."
-set_env ../../myPresto/bin/ \
-        ../../myPresto/cosgene_pack180227/src/tplgeneX180118/tplgeneX/DB 
+echo '-- List of force field files --'
+ls $DB
+read -p 'Select Force field file from the list: ' ffParamFileName
 
 echo "(1) Adding hydorgen (the topology file generated is not used as the input for simulations)"
 tplgeneX -ipdb ${inputPDBName} \
