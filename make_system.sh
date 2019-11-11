@@ -15,7 +15,8 @@ Usage
 EOF
 
 inputPDBName=$1
-inputSuffix=${inputPDBName%.*}
+name=$(basename $inputPDBName)
+inputSuffix=${name%.*}
 ffParamFileName=$2 #C99_aa_SB_ILDN.tpl
 
 echo "setting paths to binary files and force fields params..."
