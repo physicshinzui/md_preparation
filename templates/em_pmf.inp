@@ -6,7 +6,7 @@ EXE> INPUT
        QUIT
 EXE> MIN
        METHOD= STEEP    CPUTIM= 3600000
-       LOOPLI= 10      UPDATE= 10
+       LOOPLI= 3000     UPDATE= 10
        MONITO= 10       LOGFOR= DETA 
        CONVGR= 0.1      ISTEPL= 0.01
 

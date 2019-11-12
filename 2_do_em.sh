@@ -36,4 +36,4 @@ cat templates/em_pmf.inp | sed \
 
 
 export PATH=$BIN:$PATH
-cosgene < em.inp #> em.out
+cosgene < em.inp > em.out
