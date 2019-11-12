@@ -9,10 +9,6 @@ Note 1:
     You must specify a path to a directory including cosgene binary file
     before executing.
 
-Note 2:
-    CAP boundary has not been applicable yet.
-    Only PBC can be performed.
-
 EOF
 
 TOP=$1
@@ -26,6 +22,7 @@ centx=$(grep CENTER ./setwat.info | awk '{print $5}')
 centy=$(grep CENTER ./setwat.info | awk '{print $6}')
 centz=$(grep CENTER ./setwat.info | awk '{print $7}')
 
+#cat templates/em_cap.inp | sed \
 cat templates/em_pmf.inp | sed \
     -e "s!#{TOPOLOGY}!$1!g"   \
     -e "s!#{PDB}!$2!g"        \
@@ -38,4 +35,4 @@ cat templates/em_pmf.inp | sed \
 
 
 export PATH=$BIN:$PATH
-cosgene < em.inp #> em.out
+cosgene < em.inp > em.out

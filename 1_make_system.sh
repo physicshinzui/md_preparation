@@ -82,4 +82,5 @@ system_${inputSuffix}.tpl
 system_${inputSuffix}.shk
 EOS
 
-bash 2_
+
+rm out*

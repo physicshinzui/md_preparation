@@ -1,0 +1,9 @@
+    BOUND> INCLUDE
+    pro          1       1   YES
+    tip3p_water  1    5014   YES 
+    Cl           1      13   YES
+    Na           1      24   YES
+    BOUND> CENTER
+           COORDINATEs  3.948000   14.356500   40.590500
+    BOUND> RADIUS
+       70.804346

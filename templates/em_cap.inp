@@ -3,7 +3,7 @@
          COORDINA=   PDB      NAMECO=    #{PDB}
          REFCOORD=   PDB      NAMERE=    #{PDB}
          POSITION=   READ     NAMEPO=    ./templates/posres.inp
-         SETBOU=     READ     NAMEBO=    ./capbc
+         SETBOU=     READ     NAMEBO=    ./templates/capbc.inp
 
          QUIT
     EXE> MINI

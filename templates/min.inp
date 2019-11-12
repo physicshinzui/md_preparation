@@ -1,0 +1,22 @@
+    EXE> INPUT
+         TOPOLOGY=   FORM     NAMETO=    Pro_4.tpl
+         COORDINA=   PDB      NAMECO=    Pro_4.pdb
+         REFCOORD=   PDB      NAMERE=    Pro_4.pdb
+         POSITION=   READ     NAMEPO=    ./M_all.res
+         SETBOU=     READ     NAMEBO=    ./capbc
+
+         QUIT
+    EXE> MINI
+         METHOD=  STEEP       CPUTIM=     360000.0
+         LOOPLI=  500     UPDATE=     20
+         MONITO=  100     CONVGR=     0.001D0
+         CUTMET=  RESA        CUTLEN=    10.0D0
+         DIEFUN=  CONS        DIEVAL=     1.0D0
+         CALPSR=  CALC        WETPSR=     1.00
+         CALCAP=  CALC        FORCAP=    10.0
+
+         QUIT
+    EXE> OUTPUT
+         COORDINATE=  PDB     NAMECO=   Pro_4_min.pdb
+         QUIT
+    EXE> END
