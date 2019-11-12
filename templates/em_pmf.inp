@@ -22,8 +22,8 @@ EXE> MIN
        EWAPRM= 0.35      PMEORD= 5
        BOUNDA= PERI      SETCEN= NO
        MESHLX= 32  MESHLY= 32  MESHLZ= 32
-       CENTRX= #{CENTX}D0  CENTRY= #{CENTY}D0  CENTRZ= #{CENTZ}D0
-       LXCELL= #{CELLX}D0  LYCELL= #{CELLY}D0  LZCELL= #{CELLZ}D0
+       CENTRX= #{CENTX}  CENTRY= #{CENTY}  CENTRZ= #{CENTZ}
+       LXCELL= #{CELLX}  LYCELL= #{CELLY}  LZCELL= #{CELLZ}
 
        UNITAN= -1 ; IO unit for em traj out 
 

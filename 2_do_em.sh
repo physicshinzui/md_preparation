@@ -1,5 +1,6 @@
 #!/bin/bash
-set -Ceu
+set -eu
+#set -Ceu
 
 cat << EOF
 Usage
@@ -26,13 +27,13 @@ centz=$(grep CENTER ./setwat.info | awk '{print $7}')
 cat templates/em_pmf.inp | sed \
     -e "s!#{TOPOLOGY}!$1!g"   \
     -e "s!#{PDB}!$2!g"        \
-    -e "s!#{CENTX}!${cellx}!g"   \
-    -e "s!#{CENTY}!${celly}!g"   \
-    -e "s!#{CENTZ}!${cellz}!g"   \
-    -e "s!#{CELLX}!${centx}!g"   \
-    -e "s!#{CELLY}!${centy}!g"   \
-    -e "s!#{CELLZ}!${centz}!g" > em.inp
+    -e "s!#{CENTX}!${centx}!g"   \
+    -e "s!#{CENTY}!${centy}!g"   \
+    -e "s!#{CENTZ}!${centz}!g"   \
+    -e "s!#{CELLX}!${cellx}!g"   \
+    -e "s!#{CELLY}!${celly}!g"   \
+    -e "s!#{CELLZ}!${cellz}!g" > em.inp
 
 
 export PATH=$BIN:$PATH
-cosgene < em.inp > em.out
+cosgene < em.inp #> em.out

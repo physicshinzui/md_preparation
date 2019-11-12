@@ -22,6 +22,7 @@ set_env $PRESTO_BIN $DB
 inputPDBName=$1
 name=$(basename $inputPDBName)
 inputSuffix=${name%.*}
+
 echo '-- List of force field files --'
 ls $DB
 read -p 'Select Force field file from the list: ' ffParamFileName
@@ -29,10 +30,10 @@ read -p 'Select Force field file from the list: ' ffParamFileName
 echo "(1) Adding hydorgen (the topology file generated is not used as the input for simulations)"
 tplgeneX -ipdb ${inputPDBName} \
          -db ${ffParamFileName} \
-         -ss \
          -opdb out${inputSuffix}.pdb \
          -otpl out${inputSuffix}.tpl  > addH.out
          #-term \
+         #-ss \
 
 echo "(2) Adding water molecules"
 read -p "boundary type? Spherical(S)/Cubic(C)) :" boundaryType
