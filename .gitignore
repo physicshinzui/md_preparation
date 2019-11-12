@@ -1,1 +1,7 @@
 *.pdb
+*.tpl
+*.log
+*.shk
+*.out
+*.info
+*.dat
