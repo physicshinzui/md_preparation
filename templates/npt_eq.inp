@@ -24,7 +24,7 @@
      QUIT
 
  EXE> MD
-     CONTIN= NO       RESTAR= YES 
+     CONTIN= YES      RESTAR= YES 
      LOOPLI= 1000000  SETTIM= 9999999999  CPUTIM= 9999999999
      UPDATE= 10       TIMEST= 0.5d0 ; time step of MD (fs).
      OUTLOG= 1000     LOGFOR= SHOR
@@ -39,56 +39,23 @@
      INITIA= SET       ; initial v = zero and slow heating.
      BESTFI= YES
      NAMERI= restart_from_nvt_eq.dat
-     NAMERO= restart1.dat
+     NAMERO= restart_from_npt_eq.dat
+     NAMECO= npt_eq.cod
+     MNTRCO= SING    OUTCOO= 99999999
 
-     NAMECO= md.cod
-     MNTRCO= SING
-     OUTCOO= 100000
+     CALZMM= ZDIP
+     CUTLEN= 12.0D0  DIEFUN= CONS
+     DIEVAL= 1.0D0   EWAPRM= 0.0D0
+     CALHYD= NOCALC  CALV5N= NOCALC
+     CALE5N= NOCALC  CALH5N= NOCALC
+     BOUNDA= PERI    SETCEN= NO
+     CENTRX= #{CENTX}  CENTRY= #{CENTY}  CENTRZ= #{CENTZ}
+     LXCELL= #{CELLX}  LYCELL= #{CELLY}  LZCELL= #{CELLZ}
 
-;   2-5) Parameters of Energy calcutation
-;      ZDIP
-         CALZMM= ZDIP
-         CUTLEN= 12.0D0
-         DIEFUN= CONS
-         DIEVAL= 1.0D0
-         EWAPRM= 0.0D0
+     CALPSR= CALC  WETPSR= 1.0
+     QUIT
 
-         CALHYD= NOCALC
-         CALV5N= NOCALC
-         CALE5N= NOCALC
-         CALH5N= NOCALC
-
-;     For boundary. 
-         BOUNDA= PERI
-         SETCEN= NO
-
-         CENTRX= -18.046175D0
-         CENTRY=  14.498271D0
-         CENTRZ=  20.646503D0
-         LXCELL=  83.5D0
-         LYCELL=  68.0D0
-         LZCELL=  91.2D0
-
-;  For position restraint.
-         CALPSR= CALC    ; default = NOCA.
-         WETPSR= 1.0
-
-;  Do not forget to put a file name for SHAKE in INPUT.
-
-;        SHAKEM= HBON
-;        COVSHK= 1.0D-6
-;        LIMSHK= 1000
-
-        QUIT
-;*******************************************************************
-;        5)  OUTPUT (Output Files)
-;*******************************************************************
-
-  EXE> OUTPUT
-
-        COORDI= PDB          NAMECO= npt1.pdb
-
-        QUIT
-;*******************************************************************
-  EXE> END
-
+EXE> OUTPUT
+     COORDI= PDB          NAMECO= npt_eq.pdb
+     QUIT
+EXE> END

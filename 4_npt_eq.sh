@@ -24,7 +24,7 @@ centx=$(grep CENTER ./setwat.info | awk '{print $5}')
 centy=$(grep CENTER ./setwat.info | awk '{print $6}')
 centz=$(grep CENTER ./setwat.info | awk '{print $7}')
 
-cat templates/nvt_eq.inp | sed \
+cat templates/npt_eq.inp | sed \
     -e "s!#{TOPOLOGY}!$1!g"   \
     -e "s!#{PDB}!$2!g"        \
     -e "s!#{SHK}!$3!g"        \
@@ -35,13 +35,13 @@ cat templates/nvt_eq.inp | sed \
     -e "s!#{CENTZ}!${centz}!g"   \
     -e "s!#{CELLX}!${cellx}!g"   \
     -e "s!#{CELLY}!${celly}!g"   \
-    -e "s!#{CELLZ}!${cellz}!g" > nvt_eq.inp
+    -e "s!#{CELLZ}!${cellz}!g" > npt_eq.inp
 
 read -p "is TSUBAME?[t/f]: " isTsubame
 if [ $isTsubame == 't' ]; then 
-    qsub -v INP="nvt_eq.inp" -v OUT="nvt_eq.out" ./templates/submit_toTSUBAME.sh
+    qsub -v INP="npt_eq.inp" -v OUT="npt_eq.out" ./templates/submit_toTSUBAME.sh
 elif [ $isTsubame == 'f' ]; then
-    $psygene < nvt_eq.inp > nvt_eq.out
+    $psygene < npt_eq.inp > npt_eq.out
 else
     echo "Stop: You must specify t or f."
     exit
