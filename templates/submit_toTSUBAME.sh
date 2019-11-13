@@ -6,7 +6,8 @@
 
 #export OMP_NUM_THREADS=8
 source /etc/profile.d/modules.sh
-module load cuda
+#module load cuda
+module load cuda/8.0.44
 module load intel
 module load intel-mpi
 
