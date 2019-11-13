@@ -1,8 +1,5 @@
 #!/bin/bash
 #$ -cwd
-#$ -l f_node=1
-#$ -l h_rt=00:10:00
-#$ -N nvt_eq
 
 #export OMP_NUM_THREADS=8
 source /etc/profile.d/modules.sh

@@ -13,8 +13,9 @@ Usage:
     so, you do not have to specify a shake file.
 
 #Note
-    If you use TSUBAME3.0, you may encounter a problem about shared library for cuda.
-    You then must specify an appropriate cuda version via 'module load cuda/[version]'.
+    - If you use TSUBAME3.0, you may encounter a problem about shared library for cuda. 
+      You then must specify an appropriate cuda version via 'module load cuda/[version]'.
+    - This NPT simulation is restarted from the previous NVT run.
 EOF
 
 cellx=$(grep CELL   ./setwat.info | awk '{print $5}')
@@ -39,7 +40,7 @@ cat templates/npt_eq.inp | sed \
 
 read -p "is TSUBAME?[t/f]: " isTsubame
 if [ $isTsubame == 't' ]; then 
-    qsub -v INP="npt_eq.inp" -v OUT="npt_eq.out" ./templates/submit_toTSUBAME.sh
+    qsub -g hp170020 -l f_node=1 -l h_rt=24:00:00 -N "npt_eq" -v INP="npt_eq.inp" -v OUT="npt_eq.out" ./templates/submit_toTSUBAME.sh
 elif [ $isTsubame == 'f' ]; then
     $psygene < npt_eq.inp > npt_eq.out
 else

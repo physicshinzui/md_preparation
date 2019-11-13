@@ -37,7 +37,7 @@ cat templates/nvt_eq.inp | sed \
 
 read -p "is TSUBAME?[t/f]: " isTsubame
 if [ $isTsubame == 't' ]; then 
-    qsub -v INP="nvt_eq.inp" -v OUT="nvt_eq.out" ./templates/submit_toTSUBAME.sh
+    qsub -g hp170020 -l f_node=1 -l h_rt=01:00:00 -N "nvt_eq" -v INP="nvt_eq.inp" -v OUT="nvt_eq.out" ./templates/submit_toTSUBAME.sh
 elif [ $isTsubame == 'f' ]; then
     $psygene < nvt_eq.inp > nvt_eq.out
 else
