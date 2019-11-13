@@ -34,12 +34,10 @@ EXE> MD
      ;STARTT= 10.0d0   HEATLO= 0 
                                                                              
      RANDOM= #{RAND}  
-     BESTFI= YES                                              
 
      NAMERO= restart_from_nvt_eq.dat
-     NAMECO= nvt_eq.cod
-     MNTRCO= SING                                                            
-     OUTCOO= 999999999                                                           
+     MNTRCO= NO  ;OUTCOO= 999999999                                                           
+     ;NAMECO= nvt_eq.cod
                                                                              
      CALZMM= ZDIP                                                           
      CUTLEN= 12.0D0  DIEFUN= CONS                                                           
