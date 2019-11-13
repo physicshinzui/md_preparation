@@ -1,0 +1,35 @@
+EXE> INPUT
+       TOPOLO= FORM    NAMETO= system_1maz_filled.tpl
+       COORDI= PDB     NAMECO= system_1maz_filled.pdb
+       REFCOO= PDB     NAMERE= system_1maz_filled.pdb
+       POSITI= READ    NAMEPO= ./templates/posres.inp
+       QUIT
+EXE> MIN
+       METHOD= STEEP    CPUTIM= 3600000
+       LOOPLI= 3000     UPDATE= 10
+       MONITO= 10       LOGFOR= DETA 
+       CONVGR= 0.1      ISTEPL= 0.01
+
+       CUTMET=  RESC    CUTLEN=  12.0D0
+       DIEFUN=  CONS    DIEVAL=  1.0D0
+       CALV15=  CALC    CALE15=  CALC
+       CALHYD=  NOCALC  CALV5N=  NOCALC
+       CALE5N=  NOCALC  CALH5N=  NOCALC
+       CALPSR=  CALC    WETPSR=  1.0
+
+;      PME.
+       CALPME= CALC      PMESPD= NORM
+       EWAPRM= 0.35      PMEORD= 5
+       BOUNDA= PERI      SETCEN= NO
+       MESHLX= 32  MESHLY= 32  MESHLZ= 32
+       CENTRX= 3.948000  CENTRY= 14.356500  CENTRZ= 40.590500
+       LXCELL= 55.108000  LYCELL= 67.943000  LZCELL= 62.885000
+
+       UNITAN= -1 ; IO unit for em traj out 
+
+       QUIT
+
+ EXE> OUTPUT
+       COORDI= PDB    NAMECO= em.pdb
+       QUIT
+ EXE> END

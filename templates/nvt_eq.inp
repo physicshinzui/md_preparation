@@ -1,0 +1,64 @@
+EXE> SPACEINPUT                                                             
+     CENTRX= #{CENTX}  CENTRY= #{CENTY}  CENTRZ= #{CENTZ}
+     LXCELL= #{CELLX}  LYCELL= #{CELLY}  LZCELL= #{CELLZ}
+     DXCELL= 2  DYCELL= 2  DZCELL= 2                     
+     QUIT                                                                  
+
+EXE> GPU
+     GPUALC= MPI
+     USEDEV= 0,1,2,3
+     GPUPRC= 1
+     NBDSRV= GPU
+     NBDKNL= GRID
+     NBDBSP= NOCA
+     GRDSPC= 6d0
+     GRDSCL= 1.1d0
+     QUIT
+                                                                                
+EXE> INPUT                                                                     
+     TOPOLO= FORM  NAMETO= #{TOPOLOGY}
+     COORDI= PDB   NAMECO= #{PDB}
+     SETSHA= READ  NAMESH= #{SHK}
+     REFCOO= PDB   NAMERE= #{PDB}
+     POSITI= READ  NAMEPO= ./templates/posres.inp
+     QUIT                                                                    
+EXE> MD                                                                        
+     CONTIN= NO        RESTAR= NO                                                              
+     LOOPLI= 50000     SETTIM= 9999999999  CPUTIM= 9999999999                                                      
+     UPDATE= 10        TIMEST= 2.0d0  ; (fs)                        
+     OUTLOG= 1000      LOGFOR= DETA                                                           
+     STOPCE= BOTH     
+     METHOD= CANO      INTEGR= LEAP                                                            
+     SETTEM= #{TEMP}   TEMPCO= YES       ; yes ---> independent temperature control.          
+     INITIA= SET       ; initial v = zero and slow heating.                  
+     ;STARTT= 10.0d0   HEATLO= 0 
+                                                                             
+     RANDOM= #{RAND}  
+     BESTFI= YES                                              
+
+     NAMERO= restart_from_nvt_eq.dat
+     NAMECO= nvt_eq.cod
+     MNTRCO= SING                                                            
+     OUTCOO= 999999999                                                           
+                                                                             
+     CALZMM= ZDIP                                                           
+     CUTLEN= 12.0D0  DIEFUN= CONS                                                           
+     DIEVAL= 1.0D0   EWAPRM= 0.0D0                                                          
+                                                                            
+     CALHYD= NOCALC  CALV5N= NOCALC                                                         
+     CALE5N= NOCALC  CALH5N= NOCALC                                                         
+                                                                            
+     BOUNDA= PERI    SETCEN= NO   
+     CENTRX= #{CENTX}  CENTRY= #{CENTY}  CENTRZ= #{CENTZ}
+     LXCELL= #{CELLX}  LYCELL= #{CELLY}  LZCELL= #{CELLZ}
+
+     CALPSR= CALC  WETPSR= 1.0                                                           
+                                                                            
+     SHAKEM= HBON                                                            
+
+     QUIT                                                                    
+EXE> OUTPUT                                                                   
+     COORDI= PDB          NAMECO=  nvt_eq.pdb
+     QUIT                                                                    
+EXE> END                                                                      
+                                                                                
