@@ -24,7 +24,7 @@
      QUIT
 
  EXE> MD
-     CONTIN= YES      RESTAR= YES 
+     RESTAR= YES  ;CONTIN= YES 
      LOOPLI= 1000000  SETTIM= 9999999999  CPUTIM= 9999999999
      UPDATE= 10       TIMEST= 0.5d0 ; time step of MD (fs).
      OUTLOG= 1000     LOGFOR= SHOR
@@ -36,12 +36,12 @@
      SETPRE= 1.0d0
 
      SETTEM= #{TEMP}  TEMPCO= YES  
-     INITIA= SET       ; initial v = zero and slow heating.
+     INITIA= SET      STARTT= #{TEMP} 
      BESTFI= YES
      NAMERI= restart_from_nvt_eq.dat
      NAMERO= restart_from_npt_eq.dat
-     NAMECO= npt_eq.cod
-     MNTRCO= SING    OUTCOO= 99999999
+     MNTRCO= NO   ;OUTCOO= 99999999
+     ;NAMECO= npt_eq.cod
 
      CALZMM= ZDIP
      CUTLEN= 12.0D0  DIEFUN= CONS
