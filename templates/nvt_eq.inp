@@ -39,7 +39,7 @@ EXE> MD
 
 ; restart
      RESTAR= NO
-     NAMERO= nvt_eq.rst  OUTRSL= 1000
+     NAMERO= nvt_eq.rst  ;OUTRSL= 100000
 
 ; output trajectory
      MNTRCO= NO  ;OUTCOO= 999999999

@@ -42,7 +42,7 @@
 
 ; restart 
      RESTAR= NO 
-     NAMERO= npt_eq.rst  OUTRSL= 1000 
+     NAMERO= npt_eq.rst  ;OUTRSL= 1000
 
      MNTRCO= NO   ;OUTCOO= 99999999
      ;NAMECO= npt_eq.cod

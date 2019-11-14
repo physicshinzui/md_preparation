@@ -1,23 +1,18 @@
 #!/bin/bash
 set -Ceu
 
-function set_env() {
-    BIN_PATH=$1
-    DB_PATH=$2
-    export TPL_DB_PATH=${DB_PATH} 
-    export PATH=${BIN_PATH}:$PATH
-}
-
 cat << EOF
 Usage
     bash [input (*.pdb)] [file name of force field parameter (*.tpl)]   
 
 EOF
 
+# set environment variables
 DB=../../myPresto/cosgene_pack180227/src/tplgeneX180118/tplgeneX/DB
 PRESTO_BIN=../../myPresto/bin/
+export TPL_DB_PATH=$DB
+export PATH=$PRESTO_BIN:$PATH
 echo "setting paths to binary files and force fields params..."
-set_env $PRESTO_BIN $DB
 
 inputPDBName=$1
 name=$(basename $inputPDBName)
@@ -83,5 +78,5 @@ system_${inputSuffix}.tpl
 system_${inputSuffix}.shk
 EOS
 
-
+# remove files not to be used
 rm out*

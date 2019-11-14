@@ -3,7 +3,6 @@
 Hiya, 
 I execute some scripts to get an equilibriated structure to be used for production runs.
 
-
 ## Outline
 What the scripts do is as follows:
 
@@ -19,3 +18,7 @@ iii. 3_nvt_eq.sh: to perform a NVT simulation from the minimised structure.
 iv.  4_npt_eq.sh: to perform a NPT run from the equilibrated structure.
      You will see convergence of pressure and box size.
 
+
+Notes
+    - The scrips works on TSUBAME3.0.
+    - not on a local workstation.
