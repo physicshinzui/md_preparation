@@ -23,36 +23,36 @@ EXE> INPUT
      POSITI= READ  NAMEPO= ./templates/posres.inp
      QUIT                                                                    
 EXE> MD                                                                        
-     CONTIN= NO        RESTAR= NO                                                              
-     LOOPLI= 50000     SETTIM= 9999999999  CPUTIM= 9999999999                                                      
-     UPDATE= 10        TIMEST= 2.0d0  ; (fs)                        
-     OUTLOG= 1000      LOGFOR= DETA                                                           
-     STOPCE= BOTH     
-     METHOD= CANO      INTEGR= LEAP                                                            
-     SETTEM= #{TEMP}   TEMPCO= YES       ; yes ---> independent temperature control.          
-     INITIA= SET       ; initial v = zero and slow heating.                  
-     ;STARTT= 10.0d0   HEATLO= 0 
+     RESTAR= NO
+     LOOPLI= 50000     SETTIM= 9999999999  CPUTIM= 9999999999
+     UPDATE= 10        TIMEST= 2.0d0
+     OUTLOG= 1000      LOGFOR= DETA 
+     STOPCE= BOTH    
+     METHOD= CANO      INTEGR= LEAP
+     SETTEM= #{TEMP}   TEMPCO= YES
+     INITIA= SET      
+     ;STARTT= 10.0d0   HEATLO= 0
                                                                              
-     RANDOM= #{RAND}  
+     RANDOM= #{RAND} 
 
-     NAMERO= restart_from_nvt_eq.dat
-     MNTRCO= NO  ;OUTCOO= 999999999                                                           
+     NAMERO= nvt_eq.rst
+     MNTRCO= NO  ;OUTCOO= 999999999
      ;NAMECO= nvt_eq.cod
-                                                                             
+                        
      CALZMM= ZDIP                                                           
-     CUTLEN= 12.0D0  DIEFUN= CONS                                                           
-     DIEVAL= 1.0D0   EWAPRM= 0.0D0                                                          
+     CUTLEN= 12.0D0  DIEFUN= CONS  
+     DIEVAL= 1.0D0   EWAPRM= 0.0D0
                                                                             
-     CALHYD= NOCALC  CALV5N= NOCALC                                                         
-     CALE5N= NOCALC  CALH5N= NOCALC                                                         
+     CALHYD= NOCALC  CALV5N= NOCALC
+     CALE5N= NOCALC  CALH5N= NOCALC
                                                                             
      BOUNDA= PERI    SETCEN= NO   
      CENTRX= #{CENTX}  CENTRY= #{CENTY}  CENTRZ= #{CENTZ}
      LXCELL= #{CELLX}  LYCELL= #{CELLY}  LZCELL= #{CELLZ}
 
-     CALPSR= CALC  WETPSR= 1.0                                                           
+     CALPSR= CALC  WETPSR= 1.0
                                                                             
-     SHAKEM= HBON                                                            
+     SHAKEM= HBON 
 
      QUIT                                                                    
 EXE> OUTPUT                                                                   

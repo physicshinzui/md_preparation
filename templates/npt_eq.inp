@@ -24,22 +24,27 @@
      QUIT
 
  EXE> MD
-     RESTAR= YES  ;CONTIN= YES 
      LOOPLI= 1000000  SETTIM= 9999999999  CPUTIM= 9999999999
      UPDATE= 10       TIMEST= 0.5d0 ; time step of MD (fs).
-     OUTLOG= 1000     LOGFOR= SHOR
+     OUTLOG= 1000     LOGFOR= DETA
      STOPCE= BOTH    
+
+;ensemble and integration
      METHOD= NPT      BAROST= BERE
      INTEGR= VELO
      MODIFI= ISOT     RELAXA= 50.0d0  
      COUPHB= 50.0d0   COUPPI= 2000.0d0
      SETPRE= 1.0d0
 
+; temperature
      SETTEM= #{TEMP}  TEMPCO= YES  
      INITIA= SET      STARTT= #{TEMP} 
-     BESTFI= YES
-     NAMERI= restart_from_nvt_eq.dat
-     NAMERO= restart_from_npt_eq.dat
+
+; restart 
+     RESTAR= YES      OUTRSL= 1000 
+     NAMERI= nvt_eq.rst
+     NAMERO= npt_eq.rst
+
      MNTRCO= NO   ;OUTCOO= 99999999
      ;NAMECO= npt_eq.cod
 
