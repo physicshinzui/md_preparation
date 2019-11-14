@@ -47,3 +47,5 @@ else
     echo "Stop: You must specify t or f."
     exit
 fi
+
+bash 5_show_returned_variables.sh
