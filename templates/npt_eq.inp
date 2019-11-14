@@ -24,7 +24,7 @@
      QUIT
 
  EXE> MD
-     LOOPLI= 1000000  SETTIM= 9999999999  CPUTIM= 9999999999
+     LOOPLI= 1500000  SETTIM= 9999999999  CPUTIM= 9999999999
      UPDATE= 10       TIMEST= 0.5d0 ; time step of MD (fs).
      OUTLOG= 1000     LOGFOR= DETA
      STOPCE= BOTH    
@@ -41,9 +41,8 @@
      INITIA= SET      STARTT= #{TEMP} 
 
 ; restart 
-     RESTAR= YES      OUTRSL= 1000 
-     NAMERI= nvt_eq.rst
-     NAMERO= npt_eq.rst
+     RESTAR= NO 
+     NAMERO= npt_eq.rst  OUTRSL= 1000 
 
      MNTRCO= NO   ;OUTCOO= 99999999
      ;NAMECO= npt_eq.cod
