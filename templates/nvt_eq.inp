@@ -23,22 +23,29 @@ EXE> INPUT
      POSITI= READ  NAMEPO= ./templates/posres.inp
      QUIT                                                                    
 EXE> MD                                                                        
-     RESTAR= NO
      LOOPLI= 50000     SETTIM= 9999999999  CPUTIM= 9999999999
      UPDATE= 10        TIMEST= 2.0d0
      OUTLOG= 1000      LOGFOR= DETA 
      STOPCE= BOTH    
+
+;ensemble and integrator
      METHOD= CANO      INTEGR= LEAP
+
+;temperature
      SETTEM= #{TEMP}   TEMPCO= YES
      INITIA= SET      
      ;STARTT= 10.0d0   HEATLO= 0
-                                                                             
      RANDOM= #{RAND} 
 
-     NAMERO= nvt_eq.rst
+; restart
+     RESTAR= NO
+     NAMERO= nvt_eq.rst  OUTRSL= 1000
+
+; output trajectory
      MNTRCO= NO  ;OUTCOO= 999999999
      ;NAMECO= nvt_eq.cod
-                        
+
+; interaction control 
      CALZMM= ZDIP                                                           
      CUTLEN= 12.0D0  DIEFUN= CONS  
      DIEVAL= 1.0D0   EWAPRM= 0.0D0
@@ -50,8 +57,10 @@ EXE> MD
      CENTRX= #{CENTX}  CENTRY= #{CENTY}  CENTRZ= #{CENTZ}
      LXCELL= #{CELLX}  LYCELL= #{CELLY}  LZCELL= #{CELLZ}
 
+; position restraints
      CALPSR= CALC  WETPSR= 1.0
-                                                                            
+
+; shake
      SHAKEM= HBON 
 
      QUIT                                                                    
