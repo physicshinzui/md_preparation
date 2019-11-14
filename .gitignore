@@ -5,3 +5,6 @@
 *.out
 *.info
 *.dat
+*.bak
+em.inp
+.DS_Store

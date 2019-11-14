@@ -9,7 +9,8 @@ EOF
 
 # set environment variables
 DB=../../myPresto/cosgene_pack180227/src/tplgeneX180118/tplgeneX/DB
-PRESTO_BIN=../../myPresto/bin/
+PRESTO_BIN=../../myPresto/cosgene_pack180227/bin
+#PRESTO_BIN=../../myPresto/bin/
 export TPL_DB_PATH=$DB
 export PATH=$PRESTO_BIN:$PATH
 echo "setting paths to binary files and force fields params..."
@@ -72,11 +73,8 @@ tplgeneX -ipdb out${inputSuffix}_w_wat_ion.pdb \
 
 
 echo "(5) Generating a shake file based on the topology file..."
-mkshkl << EOS > shk.log
-1
-system_${inputSuffix}.tpl
-system_${inputSuffix}.shk
-EOS
+echo "yes" | SHAKEinp -ipdb system_${inputSuffix}.pdb -itpl system_${inputSuffix}.tpl -oshk system_${inputSuffix}.shk
+python3 tools/insert_a_blank_into_shk.py system_${inputSuffix}.shk
 
 # remove files not to be used
 rm out*
