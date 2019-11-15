@@ -1,0 +1,9 @@
+#!/bin/bash
+set -Ceu
+
+if [ $1  == 'pot' ]; then
+    get_potential.sh $2
+
+elif [ $1 == 'vol' ]; then
+    get_volumes.sh $2
+fi
